@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Fruit Catcher (Shooting Mode)</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+        /* Special styles for shooting mode */
+        body {
+            background-color: #1a1a1a;
+            /* Dark background for space theme */
+        }
+
+        #canvas {
+            background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80') no-repeat center center;
+            background-size: cover;
+            border: 2px solid #fff;
+        }
+
+        .subtitle {
+            color: #f1c40f;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔫 Emotion Shooters 🎯</h1>
+    <p class="subtitle">Shooting Range: Hit the moving targets!</p>
+
+    <div class="game-container">
+        <div class="canvas-wrapper">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="sidebar">
+            <div class="how-to-play">
+                <h3>How to Play</h3>
+                <ul>
+                    <li>🖱️ <b>Mouse:</b> Move Gun</li>
+                    <li>� <b>Click:</b> SHOOT!</li>
+                    <li>⏱️ <b>Time:</b> 60 Seconds</li>
+                </ul>
+                <div class="scrollable-instructions"
+                    style="max-height: 200px; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px;">
+                    <p>
+                        🎯 <b>TARGETS</b><br>
+                        🦹 Villain: 500 pts (Fast!)<br>
+                        🏃 Runner: 300 pts<br>
+                        🧟 Zombie: 100 pts<br>
+                        <br>
+                        ⚠️ <b>RULES</b><br>
+                        - Don't let time run out!<br>
+                        - Get the highest score!<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="button" id="startBtn" onclick="init()">Start Mission</button>
+                <button type="button" id="stopBtn" onclick="stop()" disabled>Abort</button>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <a href="index.html" style="color: #f1c40f; text-decoration: underline;">Back to Main Game</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2>MISSION COMPLETED</h2>
+            <p id="gameOverReason">Time's Up!</p>
+            <div class="score-display">Score: <span id="finalScore">0</span></div>
+            <button onclick="closeModalAndRestart()">Replay</button>
+        </div>
+    </div>
+
+    <!-- Game Logic -->
+    <script src="./js/shooting_game.js"></script>
+</body>
+
+</html>

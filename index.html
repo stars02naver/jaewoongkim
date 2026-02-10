@@ -1,30 +1,120 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Teachable Machine Pose Model</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <h1>Teachable Machine Pose Model</h1>
-    <div class="button-container">
-      <button type="button" id="startBtn" onclick="init()">Start</button>
-      <button type="button" id="stopBtn" onclick="stop()" disabled>Stop</button>
-    </div>
-    <div class="canvas-container">
-      <canvas id="canvas"></canvas>
-      <div id="max-prediction"></div>
-    </div>
-    <div id="label-container"></div>
 
-    <!-- Teachable Machine 라이브러리 -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Game Hub</title>
+  <link rel="stylesheet" href="./css/launcher.css">
+</head>
 
-    <!-- 애플리케이션 모듈 -->
-    <script src="./js/stabilizer.js"></script>
-    <script src="./js/poseEngine.js"></script>
-    <script src="./js/gameEngine.js"></script>
-    <script src="./js/main.js"></script>
-  </body>
+<body>
+
+  <h1>🚀 Ultimate Game Hub 🎮</h1>
+  <p class="subtitle">Choose your destiny. 10 Epic Games Await.</p>
+
+  <div class="grid-container">
+    <!-- 1. Custom: Keyboard Game -->
+    <a href="keyboard_game.html" class="card">
+      <div class="card-image" style="background-color: #2ecc71;">⌨️</div>
+      <div class="tag">HOT</div>
+      <div class="card-content">
+        <div class="card-title">Fruit Catcher (Keys)</div>
+        <div class="card-desc">Use arrow keys to catch falling fruits. Avoid bombs!</div>
+      </div>
+    </a>
+
+    <!-- 2. Custom: Shooting Game -->
+    <a href="shooting_game.html" class="card">
+      <div class="card-image" style="background-color: #e74c3c;">🔫</div>
+      <div class="tag">NEW</div>
+      <div class="card-content">
+        <div class="card-title">Emotion Shooters</div>
+        <div class="card-desc">Shooting range style. Aim with mouse and click to destroy targets!</div>
+      </div>
+    </a>
+
+    <!-- 3. Custom: Webcam Game -->
+    <a href="webcam_game.html" class="card">
+      <div class="card-image" style="background-color: #3498db;">📸</div>
+      <div class="tag">AI</div>
+      <div class="card-content">
+        <div class="card-title">Fruit Catcher (Cam)</div>
+        <div class="card-desc">Use your body to control the basket. AI Powered!</div>
+      </div>
+    </a>
+
+    <!-- 4. Snake -->
+    <a href="javascript:alert('Snake Game Coming Soon!')" class="card">
+      <div class="card-image">🐍</div>
+      <div class="tag famous">CLASSIC</div>
+      <div class="card-content">
+        <div class="card-title">Snake</div>
+        <div class="card-desc">Eat apples, grow longer, don't hit yourself!</div>
+      </div>
+    </a>
+
+    <!-- 5. Tetris -->
+    <a href="javascript:alert('Tetris Coming Soon!')" class="card">
+      <div class="card-image">🧱</div>
+      <div class="tag famous">PUZZLE</div>
+      <div class="card-content">
+        <div class="card-title">Tetris</div>
+        <div class="card-desc">Stack blocks and clear lines. The legendary puzzle game.</div>
+      </div>
+    </a>
+
+    <!-- 6. Pacman -->
+    <a href="javascript:alert('Pacman Coming Soon!')" class="card">
+      <div class="card-image">👻</div>
+      <div class="tag famous">ARCADE</div>
+      <div class="card-content">
+        <div class="card-title">Pacman</div>
+        <div class="card-desc">Waka waka! Eat dots and avoid ghosts in the maze.</div>
+      </div>
+    </a>
+
+    <!-- 7. Pong -->
+    <a href="javascript:alert('Pong Coming Soon!')" class="card">
+      <div class="card-image">🏓</div>
+      <div class="tag famous">RETRO</div>
+      <div class="card-content">
+        <div class="card-title">Pong</div>
+        <div class="card-desc">The first video game. Hit the ball past your opponent.</div>
+      </div>
+    </a>
+
+    <!-- 8. Space Invaders -->
+    <a href="javascript:alert('Space Invaders Coming Soon!')" class="card">
+      <div class="card-image">👾</div>
+      <div class="tag famous">SHOOTER</div>
+      <div class="card-content">
+        <div class="card-title">Space Invaders</div>
+        <div class="card-desc">Defend Earth from the alien invasion!</div>
+      </div>
+    </a>
+
+    <!-- 9. Flappy Bird -->
+    <a href="javascript:alert('Flappy Bird Coming Soon!')" class="card">
+      <div class="card-image">🐦</div>
+      <div class="tag famous">MOBILE</div>
+      <div class="card-content">
+        <div class="card-title">Flappy Bird</div>
+        <div class="card-desc">Tap to fly. Avoid pipes. Don't rage quit!</div>
+      </div>
+    </a>
+
+    <!-- 10. 2048 -->
+    <a href="javascript:alert('2048 Coming Soon!')" class="card">
+      <div class="card-image">🔢</div>
+      <div class="tag famous">BRAIN</div>
+      <div class="card-content">
+        <div class="card-title">2048</div>
+        <div class="card-desc">Combine numbers to reach 2048. Addictive math puzzle.</div>
+      </div>
+    </a>
+  </div>
+
+</body>
+
 </html>

@@ -84,8 +84,49 @@ class PoseEngine {
     // Step 1: PoseNet을 통해 포즈 추정
     const { pose, posenetOutput } = await this.model.estimatePose(this.webcam.canvas);
 
-    // Step 2: Teachable Machine 분류 모델로 예측
-    const prediction = await this.model.predict(posenetOutput);
+    // Step 2: Logic-based Prediction (Nose Position)
+    // Instead of relying on the trained model, we check the Nose X coordinate.
+    // Webcam is mirrored, so:
+    // Screen Left (Your Right) <--> Screen Right (Your Left)
+
+    let className = "CENTER";
+    let probability = 1.0;
+
+    if (pose && pose.keypoints && pose.keypoints.length > 0) {
+      const nose = pose.keypoints.find(k => k.part === "nose");
+      if (nose && nose.score > 0.5) {
+        const x = nose.position.x / this.webcam.canvas.width; // 0.0 ~ 1.0
+
+        // Logic: 
+        // Right Side of Screen (User's Left) : x < 0.4
+        // Left Side of Screen (User's Right) : x > 0.6
+        // (Note: Mirroring might make this counter-intuitive, adjusting based on standard TM behavior)
+
+        // Standard TM Mirroring:
+        // Moving Left (Your Body Left) -> Appearing on Right side of Canvas -> x increases
+        // Moving Right (Your Body Right) -> Appearing on Left side of Canvas -> x decreases
+
+        if (x < 0.4) {
+          className = "RIGHT"; // Wait, user said it was reversed. Let's swap it.
+          // Original: x < 0.4 -> RIGHT
+          // Fix: x < 0.4 -> LEFT
+          className = "LEFT";
+        } else if (x > 0.6) {
+          // Original: x > 0.6 -> LEFT
+          // Fix: x > 0.6 -> RIGHT
+          className = "RIGHT";
+        } else {
+          className = "CENTER";
+        }
+      }
+    }
+
+    // Mock prediction object to satisfy existing structure
+    const prediction = [
+      { className: "LEFT", probability: className === "LEFT" ? 1.0 : 0.0 },
+      { className: "CENTER", probability: className === "CENTER" ? 1.0 : 0.0 },
+      { className: "RIGHT", probability: className === "RIGHT" ? 1.0 : 0.0 }
+    ];
 
     // 콜백 호출
     if (this.onPrediction) {

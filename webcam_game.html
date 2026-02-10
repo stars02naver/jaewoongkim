@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Teachable Machine Pose Model</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <h1>🍎 Fruit Catcher 🍌</h1>
+  <p class="subtitle">Catch the fruits, avoid the bombs!</p>
+
+  <div class="game-container">
+    <div class="canvas-wrapper">
+      <canvas id="canvas"></canvas>
+      <div id="max-prediction">Loading...</div>
+    </div>
+
+    <div class="sidebar">
+      <div class="how-to-play">
+        <h3>How to Play</h3>
+        <ul>
+          <li>👈 <b>Left:</b> Slide Head Left</li>
+          <li>😐 <b>Center:</b> Stay Center</li>
+          <li>👉 <b>Right:</b> Slide Head Right</li>
+        </ul>
+        <div class="scrollable-instructions"
+          style="max-height: 200px; overflow-y: auto; text-align: left; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px;">
+          <p>
+            ✨ <b>JACKPOT</b> ✨<br>
+            💎 Diamond: 50,000 pts<br>
+            👽 Alien: 10,000 pts<br>
+            🦄 Unicorn: 8,000 pts<br>
+            🦖 T-Rex: 5,000 pts<br>
+            👻 Ghost: 3,000 pts<br>
+            🤖 Robot: 2,000 pts<br>
+            💩 Poop: 1,000 pts<br>
+            <br>
+            🍎 <b>FRUITS</b> 🍌<br>
+            🍍 Pineapple: 500<br>
+            🍈 Melon: 480<br>
+            🥥 Coconut: 450<br>
+            🍉 Watermelon: 400<br>
+            🍒 Cherry: 350<br>
+            🍐 Pear: 300<br>
+            🍑 Peach: 280<br>
+            🍇 Grape: 250<br>
+            🥝 Kiwi: 220<br>
+            🍋 Lemon: 200<br>
+            🥭 Mango: 180<br>
+            🍊 Orange: 150<br>
+            🍓 Strawberry: 150<br>
+            🫐 Blueberry: 140<br>
+            🥑 Avocado: 130<br>
+            🍌 Banana: 120<br>
+            🍎 Apple: 100<br>
+            <br>
+            🥗 <b>VEGGIES</b> 🥕<br>
+            🥕 Carrot: 80<br>
+            🌽 Corn: 70<br>
+            🥦 Broccoli: 60<br>
+            🍅 Tomato: 50<br>
+            🍆 Eggplant: 50<br>
+            🥒 Cucumber: 50<br>
+            🥔 Potato: 40<br>
+            <br>
+            💣 <b>Bomb: Game Over</b>
+          </p>
+        </div>
+      </div>
+
+      <div id="label-container"></div>
+
+      <div class="button-container">
+        <button type="button" id="startBtn" onclick="init()">Start Game</button>
+        <button type="button" id="stopBtn" onclick="stop()" disabled>Stop</button>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <a href="index.html" style="color: white; text-decoration: underline;">Switch to Keyboard Mode</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="gameOverModal" class="modal">
+    <div class="modal-content">
+      <h2>GAME OVER</h2>
+      <p id="gameOverReason">Reason: Bomb Hit</p>
+      <div class="score-display">Score: <span id="finalScore">0</span></div>
+      <button onclick="closeModalAndRestart()">Try Again</button>
+    </div>
+  </div>
+
+  <!-- Teachable Machine 라이브러리 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+
+  <!-- 애플리케이션 모듈 -->
+  <script src="./js/stabilizer.js"></script>
+  <script src="./js/poseEngine.js"></script>
+  <script src="./js/gameEngine.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
