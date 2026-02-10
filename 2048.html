@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2048 🔢</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            background-color: #faf8ef;
+            color: #776e65;
+        }
+
+        #canvas {
+            background-color: #bbada0;
+            border: 4px solid #bbada0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: #776e65;">2048 🔢</h1>
+
+    <div class="game-container">
+        <canvas id="canvas"></canvas>
+        <div class="sidebar">
+            <div class="how-to-play">
+                <h3>Controls</h3>
+                <ul>
+                    <li>⬅️⬆️⬇️➡️ Slide</li>
+                    <li>Merge same numbers!</li>
+                </ul>
+            </div>
+            <div class="button-container">
+                <button onclick="init()">Restart</button>
+                <a href="index.html" style="color: #776e65; margin-left: 20px;">Back to Hub</a>
+            </div>
+            <div class="score-display" style="color: #776e65;">Score: <span id="score">0</span></div>
+        </div>
+    </div>
+
+    <script src="./js/2048.js"></script>
+</body>
+
+</html>

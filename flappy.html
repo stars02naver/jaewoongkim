@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flappy Bird 🐦</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            background-color: #70c5ce;
+        }
+
+        /* Sky Blue */
+        #canvas {
+            background-color: #70c5ce;
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🐦 Flappy Bird 🐦</h1>
+
+    <div class="game-container">
+        <canvas id="canvas"></canvas>
+        <div class="sidebar">
+            <div class="how-to-play">
+                <h3>Controls</h3>
+                <ul>
+                    <li>🖱️ Click or Space to Fly</li>
+                </ul>
+            </div>
+            <div class="button-container">
+                <button onclick="init()">Restart</button>
+                <a href="index.html" style="color: white; margin-left: 20px;">Back to Hub</a>
+            </div>
+            <div class="score-display">Score: <span id="score">0</span></div>
+        </div>
+    </div>
+
+    <script src="./js/flappy.js"></script>
+</body>
+
+</html>

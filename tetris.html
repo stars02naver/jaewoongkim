@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tetris 🧱</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            background-color: #202028;
+        }
+
+        #canvas {
+            background-color: #000;
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🧱 Tetris 🧱</h1>
+
+    <div class="game-container">
+        <canvas id="canvas"></canvas>
+        <div class="sidebar">
+            <div class="how-to-play">
+                <h3>Controls</h3>
+                <ul>
+                    <li>⬅️➡️ Move</li>
+                    <li>⬆️ Rotate</li>
+                    <li>⬇️ Drop</li>
+                </ul>
+            </div>
+            <div class="button-container">
+                <button onclick="playerReset(); update();">Restart</button>
+                <a href="index.html" style="color: white; margin-left: 20px;">Back to Hub</a>
+            </div>
+            <div class="score-display">Score: <span id="score">0</span></div>
+        </div>
+    </div>
+
+    <script src="./js/tetris.js"></script>
+</body>
+
+</html>

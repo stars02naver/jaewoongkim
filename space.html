@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Space Invaders 👾</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        #canvas {
+            background-color: #000;
+            border: 2px solid #0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>👾 Space Invaders 👾</h1>
+
+    <div class="game-container">
+        <canvas id="canvas"></canvas>
+        <div class="sidebar">
+            <div class="how-to-play">
+                <h3>Controls</h3>
+                <ul>
+                    <li>⬅️➡️ Move</li>
+                    <li>💥 Space to Shoot</li>
+                </ul>
+            </div>
+            <div class="button-container">
+                <button onclick="init()">Restart</button>
+                <a href="index.html" style="color: white; margin-left: 20px;">Back to Hub</a>
+            </div>
+            <div class="score-display">
+                Score: <span id="score">0</span><br>
+                Level: <span id="level">1</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/space.js"></script>
+</body>
+
+</html>

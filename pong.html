@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pong 🏓</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        #canvas {
+            background-color: #000;
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🏓 Pong 🏓</h1>
+    <p class="subtitle">Classic Table Tennis</p>
+
+    <div class="game-container">
+        <canvas id="canvas"></canvas>
+        <div class="sidebar">
+            <div class="how-to-play">
+                <h3>Controls</h3>
+                <ul>
+                    <li>🖱️ Move Mouse Up/Down</li>
+                </ul>
+            </div>
+            <div class="button-container">
+                <button onclick="init()">Start</button>
+                <a href="index.html" style="color: white; margin-left: 20px;">Back to Hub</a>
+            </div>
+            <div class="score-display">
+                Player: <span id="playerScore">0</span> | AI: <span id="aiScore">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/pong.js"></script>
+</body>
+
+</html>

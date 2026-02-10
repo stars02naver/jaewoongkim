@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stickman Fight 1v1 ⚔️</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        #canvas {
+            background-color: #f0f0f0;
+            border: 2px solid #555;
+            display: none;
+        }
+
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            z-index: 10;
+        }
+
+        .weapon-select-container {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 30px;
+        }
+
+        .player-select {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .player-select h2 {
+            margin-top: 0;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        button.start-btn {
+            padding: 15px 40px;
+            font-size: 24px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button.start-btn:hover {
+            transform: scale(1.1);
+        }
+
+        #game-hud {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+            pointer-events: none;
+            display: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 1px 1px 0 white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Selection UI -->
+    <div id="ui-layer">
+        <h1>⚔️ STICKMAN FIGHT 1v1 ⚔️</h1>
+        <div class="weapon-select-container">
+            <div class="player-select" style="border: 2px solid #2ecc71;">
+                <h2 style="color: #2ecc71;">Player 1 (WASD)</h2>
+                <label>Choose Weapon:</label><br><br>
+                <select id="p1-weapon">
+                    <option value="none">Create Fists</option>
+                    <option value="bat">Baseball Bat</option>
+                    <option value="nunchuck">Nunchucks</option>
+                    <option value="knife">Knife</option>
+                    <option value="sword">Sword</option>
+                    <option value="spear">Spear</option>
+                    <option value="axe">Battle Axe</option>
+                    <option value="mace">Mace</option>
+                    <option value="hammer">Sledgehammer</option>
+                    <option value="staff">Bo Staff</option>
+                    <option value="dagger">Dagger</option>
+                </select>
+            </div>
+
+            <div class="player-select" style="border: 2px solid #e74c3c;">
+                <h2 style="color: #e74c3c;">Player 2 (Arrows)</h2>
+                <label>Choose Weapon:</label><br><br>
+                <select id="p2-weapon">
+                    <option value="none">Create Fists</option>
+                    <option value="bat">Baseball Bat</option>
+                    <option value="nunchuck">Nunchucks</option>
+                    <option value="knife">Knife</option>
+                    <option value="sword">Sword</option>
+                    <option value="spear">Spear</option>
+                    <option value="axe">Battle Axe</option>
+                    <option value="mace">Mace</option>
+                    <option value="hammer">Sledgehammer</option>
+                    <option value="staff">Bo Staff</option>
+                    <option value="dagger">Dagger</option>
+                </select>
+            </div>
+        </div>
+        <button class="start-btn" onclick="startGame()">FIGHT!</button>
+        <br>
+        <a href="index.html" style="color: #aaa; margin-top: 20px;">Back to Menu</a>
+    </div>
+
+    <!-- Game HUD -->
+    <div id="game-hud">
+        <div style="color: #27ae60;">P1 Score: <span id="p1-score">0</span></div>
+        <div style="color: #c0392b;">P2 Score: <span id="p2-score">0</span></div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="./js/stickman.js"></script>
+</body>
+
+</html>
